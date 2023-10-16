@@ -144,12 +144,11 @@ void PA::calcular_qtd_termos() {
     if(this->r + this->k != 0) {
         this->n = (this->An - this->Ak) / (this->r + this->k);
         cout << "A quantidade de termos da PA é igual a " << this->n << '\n';
-        Sleep();
     } else {
         cout << "Não pode divisão por zero!\n";
-        Sleep();
-        return;
     }
+
+    Sleep();
 }
 
 void PA::calcular_soma_termos() {
@@ -182,6 +181,7 @@ void PA::calcular_soma_termos() {
 
         this->Sn = ((this->Ak + this->An) * this->n) / 2;
         cout << "A soma dos termos da PA é igual a " << this->Sn << '\n';
+        Sleep();
         return;
     }
 
@@ -199,6 +199,7 @@ void PA::calcular_soma_termos() {
 
     this->Sn = (this->n * (2 * this->Ak + (this->n - 1) * this->r)) / 2;
     cout << "A soma dos termos da PA é igual a " << this->Sn << '\n';
+    Sleep();
 }
 
 void PA::calcular_termo_medio() {
@@ -212,6 +213,7 @@ void PA::calcular_termo_medio() {
 
     float am = (this->An + this->Ak) / 2;
     cout << "O termo médio dessa PA é igual a " << am << '\n';
+    Sleep();
 }
 
 void PA::calcular_posicao_termo() {
@@ -230,10 +232,9 @@ void PA::calcular_posicao_termo() {
     if(this->r != 0) {
         this->n = (this->An - this->Ak + this->r) / this->r;
         cout << "O número " << this->An << " ocupa a " << this->n << "° posição\n";
-        Sleep();
     } else {
         cout << "A razão não pode ser igual a zero.\n";
-        Sleep();
-        return;
     }
+
+    Sleep();
 }
