@@ -58,7 +58,7 @@ void PG::calcular_termo_medio() {
     cin >> this->An;
     validar_numero(this->An);
 
-    float am = pow(this->Ak * this->An, 0.5f);
+    float am = pow(this->Ak * this->An, 0.5);
     cout << "O termo médio da PG é igual a " << am << '\n';
     Sleep();
 }

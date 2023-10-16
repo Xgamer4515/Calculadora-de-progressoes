@@ -12,8 +12,8 @@ struct PG {
 
     void calcular_soma_termos_infinita();
     void calcular_soma_termos_finita();
-    void calcular_enesimo_termo();
     void calcular_posicao_termo();
+    void calcular_enesimo_termo();
     void calcular_termo_medio();
     void calcular_soma_termos();
     void calcular_qtd_termos();
