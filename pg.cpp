@@ -23,7 +23,8 @@ void PG::calcular_razao() {
     validar_numero(this->n);
 
     this->q = pow((this->An / this->Ak), 1 / (this->n - this->k));
-    cout << "A razão é igual a " << q << '\n';  
+    cout << "A razão é igual a " << q << '\n';
+    Sleep();  
 }
 
 void PG::calcular_enesimo_termo() {
@@ -43,8 +44,9 @@ void PG::calcular_enesimo_termo() {
     cin >> this->n;
     validar_numero(this->n);
 
-    this->An = this->Ak * pow(this->q, this->n - 1);
+    this->An = this->Ak * pow(this->q, this->n - this->k);
     cout << "O An é igual a " << this->An << '\n';
+    Sleep();
 }
 
 void PG::calcular_termo_medio() {
@@ -56,8 +58,9 @@ void PG::calcular_termo_medio() {
     cin >> this->An;
     validar_numero(this->An);
 
-    float am = pow(this->Ak * this->An, 1 / 2);
+    float am = pow(this->Ak * this->An, 0.5f);
     cout << "O termo médio da PG é igual a " << am << '\n';
+    Sleep();
 }
 
 void PG::calcular_soma_termos() {
@@ -90,8 +93,14 @@ void PG::calcular_soma_termos_infinita() {
     cin >> this->q;
     validar_numero(this->q);
 
-    this->soma_termos = (this->Ak) / 1 - this->q;
-    cout << "A soma dos termos da PG é igual a " << this->soma_termos << '\n';
+    if((1 - this->q) != 0) {
+        this->Sn = this->Ak / (1 - this->q);
+        cout << "A soma dos termos da PG é igual a " << this->Sn << '\n';
+    } else {
+        cout << "A razão da pg não pode ser igual a zero\n";
+    }
+
+    Sleep();
 }
 
 void PG::calcular_soma_termos_finita() {
@@ -122,8 +131,14 @@ void PG::calcular_soma_termos_finita() {
         cin >> this->n;
         validar_numero(this->n);
 
-        this->soma_termos = this->Ak * (pow(this->q, this->n - 1)) / this->q - 1;
-        cout << "A soma dos termos da PG é igual a " << this->soma_termos << '\n';        
+        if((1 - this->q) != 0) {
+            this->Sn = this->Ak * (pow(this->q, this->n - 1)) / this->q - 1;
+            cout << "A soma dos termos da PG é igual a " << this->Sn << '\n';
+        } else {
+            cout << "A razão não pode ser igual a um\n";
+        }
+
+        Sleep();        
         return;
     }
 
@@ -139,12 +154,14 @@ void PG::calcular_soma_termos_finita() {
     cin >> this->n;
     validar_numero(this->n);
 
-    if(1 - this->q != 0) {
-        this->soma_termos = this->Ak * (1 - pow(this->q, this->n)) / 1 - this->q;
-        cout << "A soma dos termos da PG é igual a " << this->soma_termos << '\n';
+    if((1 - this->q) != 0) {
+        this->Sn = (this->Ak * (1 - pow(this->q, this->n))) / (1 - this->q);
+        cout << "A soma dos termos da PG é igual a " << this->Sn << '\n';
     } else {
         cout << "A razão da PG não pode ser igual a um\n";
     }
+
+    Sleep();
 }
 
 void PG::calcular_qtd_termos() {
@@ -161,15 +178,17 @@ void PG::calcular_qtd_termos() {
     validar_numero(this->n);
 
     cout << "Digite a  soma dos primeiros termos (Sn): ";
-    cin >> this->soma_termos;
-    validar_numero(this->soma_termos);
+    cin >> this->Sn;
+    validar_numero(this->Sn);
 
     if(this->q != 0) {
-        this->n = log((this->soma_termos * (this->q - 1)) / this->Ak + 1) / log(this->q);
+        this->n = log((this->Sn * (this->q - 1)) / this->Ak + 1) / log(this->q);
         cout << "A quantidade de termos da PA é igual a " << this->n << '\n';
     } else {
         cout << "A razão da PG não pode ser igual a zero\n";
     }
+
+    Sleep();
 }
 
 void PG::calcular_posicao_termo() {
@@ -195,4 +214,6 @@ void PG::calcular_posicao_termo() {
     } else {
         cout << "A razão da PG não pode ser igual a zero\n";
     }
+
+    Sleep();
 }

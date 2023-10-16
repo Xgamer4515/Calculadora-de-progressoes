@@ -1,14 +1,14 @@
 #pragma once
 
 struct PG {
-    float soma_termos;
+    float Sn;
     float An;
     float Ak;
     float k;
     float q;
     float n;
 
-    enum { SOMA_TERMOS_INFINITO = 1, SOMA_TERMOS_FINITO };
+    enum { SOMA_TERMOS_INFINITO = 1 };
 
     void calcular_soma_termos_infinita();
     void calcular_soma_termos_finita();
