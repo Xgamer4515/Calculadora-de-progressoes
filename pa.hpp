@@ -1,7 +1,7 @@
 #pragma once
 
 struct PA {
-    float soma_termos;
+    float Sn;
     float An;
     float Ak;
     float n;
